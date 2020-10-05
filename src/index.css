@@ -9,3 +9,8 @@ body {
   font-size: 0.9rem;
   color: #343a40;
 }
+
+.animated {
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
