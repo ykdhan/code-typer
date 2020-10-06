@@ -1,25 +1,31 @@
 .form {
     display: flex;
+    max-width: 500px;
+    
 }
   
 .form input {
     flex: 1;
     font-size: 1rem;
     outline: none;
-    border: none;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 1rem;
+    font-family: "Lucida Console", Courier, monospace;
 }
   
 .create-button {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    margin-left: 1rem;
-    background: #fff;
+    padding: 1rem;
+    width: 3rem;
+    position: absolute;
+    margin-left: calc(500px - 5rem);
+    text-align: center;
     color: #343a40;
     font-weight: 700;
     cursor: pointer;
     border-radius: 3px;
+    transition: all 0.2s ease-out;
+    font-family: "Lucida Console", Courier, monospace;
 }
   
 .create-button:hover {

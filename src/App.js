@@ -5,14 +5,12 @@ import TodoItemList from './components/TodoItemList';
 
 class App extends Component {
 
-  id = 3 // 이미 0,1,2 가 존재하므로 3으로 설정
+  id = 1 // 이미 0,1,2 가 존재하므로 3으로 설정
 
   state = {
     input: '',
     todos: [
-      { id: 0, text: ' 리액트 소개', checked: false },
-      { id: 1, text: ' 리액트 소개', checked: true },
-      { id: 2, text: ' 리액트 소개', checked: false }
+      { id: 0, text: 'Start typing your code! (and please delete me)', checked: true }
     ]
   }
 
@@ -37,6 +35,12 @@ class App extends Component {
   handleKeyPress = (e) => {
     if(e.key === 'Enter') {
       this.handleCreate();
+    } else if (e.key === 'Tab') {
+      e.preventDefault();
+      const { input } = this.state;
+      this.setState({
+        input: input+'　　' 
+      })
     }
   }
 
@@ -72,7 +76,7 @@ class App extends Component {
       <TodoListTemplate form={(
         <Form 
           value={input}
-          onKeyPress={handleKeyPress}
+          onKeyDown={handleKeyPress}
           onChange={handleChange}
           onCreate={handleCreate}
         />
