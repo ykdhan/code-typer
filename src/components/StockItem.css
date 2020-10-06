@@ -1,4 +1,4 @@
-.todo-item {
+.stock-item {
     padding: 0.3rem 1rem;
     display: flex;
     align-items: center;
@@ -9,15 +9,15 @@
     font-size: 0.85rem;
 }
 
-.todo-item:hover {
+.stock-item:hover {
     background: #f5f5f5;
 }
 
-.todo-item:hover .remove {
+.stock-item:hover .remove {
     opacity: 1;
 }
 
-.todo-item + .todo-item {
+.stock-item + .stock-item {
     border-top: 1px solid #f5f5f5;
 }
 
@@ -30,16 +30,16 @@
     opacity: 0;
 }
   
-.todo-text {
+.stock-text {
     flex: 1;
     word-break: break-all;
 }
   
-.todo-text.checked {
+.stock-text.checked {
     font-weight: 700;
 }
   
-.todo-check {
+.stock-check {
     font-size: 1.4rem;
     line-height: 1rem;
     margin-right: 1.5rem;
@@ -48,6 +48,6 @@
     opacity: 0;
 }
 
-.todo-check.checked {
+.stock-check.checked {
     opacity: 1;
 }

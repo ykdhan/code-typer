@@ -13,7 +13,7 @@ class App extends Component {
 
   state = {
     input: '',
-    todos: []
+    stocks: []
   }
 
   handleChange = (e) => {
@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   handleCreate = () => {
-    const { input, todos } = this.state;
+    const { input, stocks } = this.state;
 
     axios.get("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol="+input+"&interval=5min&apikey=B0FMW70DUVTCNFDP")
     .then(res => {
@@ -42,7 +42,7 @@ class App extends Component {
 
       this.setState({
         input: '',
-        todos: todos.concat({
+        stocks: stocks.concat({
           id: this.id++,
           text: input.toUpperCase(),
           checked: false,
@@ -50,7 +50,7 @@ class App extends Component {
         })
       });
 
-      console.log(this.state.todos);
+      console.log(this.state.stocks);
     })
     .catch(error => console.log(error))
 
@@ -64,11 +64,11 @@ class App extends Component {
   }
 
   handleToggle = (id) => {
-    const { todos } = this.state;
+    const { stocks } = this.state;
 
-    const index = todos.findIndex(todo => todo.id === id);
-    const selected = todos[index];
-    const nextStocks = [...todos];
+    const index = stocks.findIndex(stock => stock.id === id);
+    const selected = stocks[index];
+    const nextStocks = [...stocks];
 
     nextStocks[index] = { 
       ...selected, 
@@ -76,19 +76,19 @@ class App extends Component {
     };
 
     this.setState({
-      todos: nextStocks
+      stocks: nextStocks
     });
   }
 
   handleRemove = (id) => {
-    const { todos } = this.state;
+    const { stocks } = this.state;
     this.setState({
-      todos: todos.filter(todo => todo.id !== id)
+      stocks: stocks.filter(stock => stock.id !== id)
     });
   }
 
   render() {
-    const { input, todos } = this.state;
+    const { input, stocks } = this.state;
     const { handleChange, handleCreate, handleKeyPress, handleToggle, handleRemove } = this;
 
     return (
@@ -101,7 +101,7 @@ class App extends Component {
         />
       )}
       >
-        <StockItemList todos={todos} onToggle={handleToggle} onRemove={handleRemove}/>
+        <StockItemList stocks={stocks} onToggle={handleToggle} onRemove={handleRemove}/>
       </StockListTemplate>
     );
   }

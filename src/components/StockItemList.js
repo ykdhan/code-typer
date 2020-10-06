@@ -4,13 +4,13 @@ import StockItem from './StockItem';
 class StockItemList extends Component {
 
     shouldComponentUpdate(nextProps, nextState) {
-        return this.props.todos !== nextProps.todos;
+        return this.props.stocks !== nextProps.stocks;
     }
 
     render() {
-        const { todos, onToggle, onRemove } = this.props;
+        const { stocks, onToggle, onRemove } = this.props;
 
-        const todoList = todos.map(
+        const stockList = stocks.map(
             ({id, text, checked}) => (
                 <StockItem
                     id={id}
@@ -25,7 +25,7 @@ class StockItemList extends Component {
     
         return (
             <div>
-                {todoList}    
+                {stockList}    
             </div>
         );
     }

@@ -12,13 +12,10 @@ class StockItem extends Component {
       const { text, checked, id, onToggle, onRemove, series } = this.props;
   
       return (
-        <div className="todo">
-          <div className="todo-item animated fadeIn" onClick={() => onToggle(id)}>
-              {/*<div className={`todo-check ${checked && 'checked'}`}>
-                  <div>●</div>
-              </div>*/}
+        <div className="stock">
+          <div className="stock-item animated fadeIn" onClick={() => onToggle(id)}>
               
-              <div className={`todo-text ${checked && 'checked'}`}>
+              <div className={`stock-text ${checked && 'checked'}`}>
                   <div>{text}</div>
                   {checked ? <StockChart series={series}/> : ''}
               </div>

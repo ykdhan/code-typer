@@ -1,4 +1,4 @@
-.todo-list-template {
+.stock-list-template {
     background: white;
     width: 100%;
     margin: 0 auto;
@@ -21,6 +21,6 @@
     z-index: 99;
 }
   
-.todos-wrapper {
+.stocks-wrapper {
     min-height: 5rem;
 }

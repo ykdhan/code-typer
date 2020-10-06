@@ -4,9 +4,9 @@ import './StockListTemplate.css';
 const StockListTemplate = ({form, children}) => {
 
   return (
-    <main className="todo-list-template">
+    <main className="stock-list-template">
         <section className="form-wrapper">{form}</section>
-        <section className="todos-wrapper">{children}</section>
+        <section className="stocks-wrapper">{children}</section>
     </main>
   );
 };
