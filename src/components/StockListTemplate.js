@@ -1,15 +1,14 @@
 import React from 'react';
-import './TodoListTemplate.css';
+import './StockListTemplate.css';
 
-const TodoListTemplate = ({form, children, chartData}) => {
+const StockListTemplate = ({form, children}) => {
 
   return (
     <main className="todo-list-template">
         <section className="form-wrapper">{form}</section>
         <section className="todos-wrapper">{children}</section>
-        <section className="todos-wrapper">{chartData}</section>
     </main>
   );
 };
 
-export default TodoListTemplate;
+export default StockListTemplate;

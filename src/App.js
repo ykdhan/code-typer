@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import TodoListTemplate from './components/TodoListTemplate';
+import StockListTemplate from './components/StockListTemplate';
 import Form from './components/Form';
-import TodoItemList from './components/TodoItemList';
-import StockChart from './components/StockChart';
+import StockItemList from './components/StockItemList';
+import axios from 'axios';
 
 
 class App extends Component {
@@ -13,10 +13,7 @@ class App extends Component {
 
   state = {
     input: '',
-    todos: [
-      { id: 0, text: 'Start typing your code! (and please delete me)', checked: true }
-    ],
-    stock: 'AAPL'
+    todos: []
   }
 
   handleChange = (e) => {
@@ -27,15 +24,37 @@ class App extends Component {
 
   handleCreate = () => {
     const { input, todos } = this.state;
-    this.setState({
-      input: '',
-      todos: todos.concat({
-        id: this.id++,
-        text: input,
-        checked: false
-      }),
-      stock: input
-    });
+
+    axios.get("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol="+input+"&interval=5min&apikey=B0FMW70DUVTCNFDP")
+    .then(res => {
+      //console.log(res.data);
+      
+      var imported = [
+        [ 'Time', 'Open', 'Close']
+      ];
+
+      var keys = Object.keys(res.data["Time Series (5min)"]);
+
+      for(var okay = 0; okay < keys.length; okay++) {
+        var item = res.data["Time Series (5min)"][keys[okay]];
+        imported.push([ keys[okay].split(" ")[1], parseFloat(item['1. open']), parseFloat(item['4. close']) ]);
+      }
+
+      this.setState({
+        input: '',
+        todos: todos.concat({
+          id: this.id++,
+          text: input.toUpperCase(),
+          checked: false,
+          series: imported
+        })
+      });
+
+      console.log(this.state.todos);
+    })
+    .catch(error => console.log(error))
+
+    
   }
 
   handleKeyPress = (e) => {
@@ -49,15 +68,15 @@ class App extends Component {
 
     const index = todos.findIndex(todo => todo.id === id);
     const selected = todos[index];
-    const nextTodos = [...todos];
+    const nextStocks = [...todos];
 
-    nextTodos[index] = { 
+    nextStocks[index] = { 
       ...selected, 
       checked: !selected.checked
     };
 
     this.setState({
-      todos: nextTodos
+      todos: nextStocks
     });
   }
 
@@ -69,11 +88,11 @@ class App extends Component {
   }
 
   render() {
-    const { input, todos, stock } = this.state;
+    const { input, todos } = this.state;
     const { handleChange, handleCreate, handleKeyPress, handleToggle, handleRemove } = this;
 
     return (
-      <TodoListTemplate form={(
+      <StockListTemplate form={(
         <Form 
           value={input}
           onKeyDown={handleKeyPress}
@@ -81,12 +100,9 @@ class App extends Component {
           onCreate={handleCreate}
         />
       )}
-      chartData={(
-        <StockChart stock={ stock }/>
-      )}
       >
-        <TodoItemList todos={todos} onToggle={handleToggle} onRemove={handleRemove}/>
-      </TodoListTemplate>
+        <StockItemList todos={todos} onToggle={handleToggle} onRemove={handleRemove}/>
+      </StockListTemplate>
     );
   }
 }

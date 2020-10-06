@@ -12,6 +12,7 @@
     border-radius: 3px;
     padding: 1rem;
     font-family: 'Cousine', monospace;
+    text-transform: uppercase;
 }
   
 .create-button {

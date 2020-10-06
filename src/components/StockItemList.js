@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import TodoItem from './TodoItem';
+import StockItem from './StockItem';
 
-class TodoItemList extends Component {
+class StockItemList extends Component {
 
     shouldComponentUpdate(nextProps, nextState) {
         return this.props.todos !== nextProps.todos;
@@ -12,7 +12,7 @@ class TodoItemList extends Component {
 
         const todoList = todos.map(
             ({id, text, checked}) => (
-                <TodoItem
+                <StockItem
                     id={id}
                     text={text}
                     checked={checked}
@@ -31,4 +31,4 @@ class TodoItemList extends Component {
     }
 }
 
-export default TodoItemList;
+export default StockItemList;

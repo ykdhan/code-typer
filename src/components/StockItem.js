@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import './TodoItem.css';
+import './StockItem.css';
+import StockChart from './StockChart';
 
-class TodoItem extends Component {
+class StockItem extends Component {
 
     shouldComponentUpdate(nextProps, nextState) {
         return this.props.checked !== nextProps.checked;
     }
 
     render() {
-      const { text, checked, id, onToggle, onRemove } = this.props;
+      const { text, checked, id, onToggle, onRemove, series } = this.props;
   
       return (
         <div className="todo">
@@ -19,6 +20,7 @@ class TodoItem extends Component {
               
               <div className={`todo-text ${checked && 'checked'}`}>
                   <div>{text}</div>
+                  {checked ? <StockChart series={series}/> : ''}
               </div>
 
               <div className="remove" onClick={(e) => { e.stopPropagation(); onRemove(id); }}>&times;</div>
@@ -28,4 +30,4 @@ class TodoItem extends Component {
     }
   }
   
-  export default TodoItem;
+  export default StockItem;
