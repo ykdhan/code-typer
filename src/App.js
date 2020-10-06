@@ -5,7 +5,7 @@ import TodoItemList from './components/TodoItemList';
 
 class App extends Component {
 
-  id = 1 // 이미 0,1,2 가 존재하므로 3으로 설정
+  id = 1;
 
   state = {
     input: '',
