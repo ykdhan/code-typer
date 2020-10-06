@@ -5,6 +5,8 @@ import TodoItemList from './components/TodoItemList';
 
 class App extends Component {
 
+  title = 'Code Typer';
+
   id = 1;
 
   state = {
@@ -39,7 +41,7 @@ class App extends Component {
       e.preventDefault();
       const { input } = this.state;
       this.setState({
-        input: input+'　　' 
+        input: input+'　　'
       })
     }
   }
