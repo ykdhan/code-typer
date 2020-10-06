@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import TodoListTemplate from './components/TodoListTemplate';
 import Form from './components/Form';
 import TodoItemList from './components/TodoItemList';
+import StockChart from './components/StockChart';
+
 
 class App extends Component {
 
@@ -13,7 +15,8 @@ class App extends Component {
     input: '',
     todos: [
       { id: 0, text: 'Start typing your code! (and please delete me)', checked: true }
-    ]
+    ],
+    stock: 'AAPL'
   }
 
   handleChange = (e) => {
@@ -30,19 +33,14 @@ class App extends Component {
         id: this.id++,
         text: input,
         checked: false
-      })
+      }),
+      stock: input
     });
   }
 
   handleKeyPress = (e) => {
     if(e.key === 'Enter') {
       this.handleCreate();
-    } else if (e.key === 'Tab') {
-      e.preventDefault();
-      const { input } = this.state;
-      this.setState({
-        input: input+'　　'
-      })
     }
   }
 
@@ -71,7 +69,7 @@ class App extends Component {
   }
 
   render() {
-    const { input, todos } = this.state;
+    const { input, todos, stock } = this.state;
     const { handleChange, handleCreate, handleKeyPress, handleToggle, handleRemove } = this;
 
     return (
@@ -82,7 +80,11 @@ class App extends Component {
           onChange={handleChange}
           onCreate={handleCreate}
         />
-      )}>
+      )}
+      chartData={(
+        <StockChart stock={ stock }/>
+      )}
+      >
         <TodoItemList todos={todos} onToggle={handleToggle} onRemove={handleRemove}/>
       </TodoListTemplate>
     );
