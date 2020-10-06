@@ -11,7 +11,7 @@ class StockItemList extends Component {
         const { stocks, onToggle, onRemove } = this.props;
 
         const stockList = stocks.map(
-            ({id, text, checked}) => (
+            ({id, text, checked, series}) => (
                 <StockItem
                     id={id}
                     text={text}
@@ -19,6 +19,7 @@ class StockItemList extends Component {
                     onToggle={onToggle}
                     onRemove={onRemove}
                     key={id}
+                    series={series}
                 />
             )
         );

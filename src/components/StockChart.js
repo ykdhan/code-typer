@@ -8,33 +8,31 @@ class StockChart extends Component {
     super(props);
 
     this.state = {
-      error: null,
       isLoaded: false
     };
   }
   
   render() {
-    const { error, isLoaded } = this.state;
-    console.log(this.props);
+    const { isLoaded } = this.state;
 
-    if (error) {
-      return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
-      return <div>Loading...</div>;
-    } else {
-      return (
-        <div>
-        <Chart
-          width={'1000px'}
-          height={'400px'}
-          chartType="Line"
-          loader={<div>Loading</div>}
-          data={this.props.series}
-          rootProps={{ 'data-testid': '3' }}
-        />
-      </div>
-      );
-    }
+    return (
+      <div>
+      <Chart
+        width={'1000px'}
+        height={'400px'}
+        chartType="Line"
+        loader={<div>Loading</div>}
+        data={this.props.series}
+        rootProps={{ 'data-testid': '3' }}
+        options={{
+          legend: {
+            position: 'none'
+          },
+          axisTitlesPosition: 'none'
+        }}
+      />
+    </div>
+    );
   }
 }
 
