@@ -2,7 +2,6 @@
     background: white;
     width: 100%;
     margin: 0 auto;
-    margin-top: 5rem;
 }
   
 .title {
@@ -15,12 +14,16 @@
 .form-wrapper {
     padding: 1rem;
     position: fixed;
+    height: 100vh;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 15rem;
+    background: #fff;
     z-index: 99;
 }
   
 .stocks-wrapper {
-    min-height: 5rem;
+    min-height: 100vh;
+    background: #fbfafa;
+    padding-left: 18rem;
 }

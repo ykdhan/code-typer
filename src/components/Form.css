@@ -1,36 +1,34 @@
 .form {
     display: flex;
     width: 100%;
-    max-width: 600px;
 }
   
 .form input {
     flex: 1;
-    font-size: 1rem;
+    font-size: 0.9rem;
     outline: none;
     border: 1px solid #ddd;
     border-radius: 3px;
     padding: 1rem;
-    font-family: 'Cousine', monospace;
+    font-family: 'NEXON Lv1 Gothic OTF Bold'; 
     text-transform: uppercase;
 }
   
 .create-button {
-    padding: 0.5rem;
-    width: 3rem;
+    padding: 0.4rem;
+    width: 2.2rem;
+    margin-top: 0.35rem;
     position: absolute;
-    margin-top: 0.6rem;
-    margin-left: calc(600px - 4.6rem);
+    margin-left: calc(100% - 5.2rem);
     text-align: center;
-    color: #343a40;
     font-weight: 700;
+    font-size: 1.2rem;
     cursor: pointer;
     border-radius: 3px;
     transition: all 0.2s ease-out;
-    font-family: 'Cousine', monospace;
+    font-family: 'NEXON Lv1 Gothic OTF'; 
 }
   
 .create-button:hover {
-    background: #343a40;
-    color: #fff;
+    background: #ff4433;
 }
