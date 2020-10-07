@@ -4,22 +4,18 @@ import { Chart } from "react-google-charts";
 
 class StockChart extends Component {
     
+  /*
   constructor(props) {
     super(props);
-
-    this.state = {
-      isLoaded: false
-    };
   }
+  */
   
   render() {
-    const { isLoaded } = this.state;
-
     return (
-      <div>
+      <div class="stock-chart">
       <Chart
-        width={'1000px'}
-        height={'400px'}
+        width={'100%'}
+        height={'20rem'}
         chartType="Line"
         loader={<div>Loading</div>}
         data={this.props.series}
