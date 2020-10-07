@@ -8,7 +8,7 @@
     font-size: 0.9rem;
     outline: none;
     border: 1px solid #ddd;
-    border-radius: 3px;
+    border-radius: 7px;
     padding: 1rem;
     font-family: 'NEXON Lv1 Gothic OTF Bold'; 
     text-transform: uppercase;
@@ -19,12 +19,12 @@
     width: 2.2rem;
     margin-top: 0.35rem;
     position: absolute;
-    margin-left: calc(100% - 5.2rem);
+    margin-left: calc(100% - 5.4rem);
     text-align: center;
     font-weight: 700;
     font-size: 1.2rem;
     cursor: pointer;
-    border-radius: 3px;
+    border-radius: 7px;
     transition: all 0.2s ease-out;
     font-family: 'NEXON Lv1 Gothic OTF'; 
 }

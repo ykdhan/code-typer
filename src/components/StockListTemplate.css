@@ -20,10 +20,12 @@
     width: 15rem;
     background: #fff;
     z-index: 99;
+    border-right: 1px solid #f0f0f0;
 }
   
 .stocks-wrapper {
     min-height: 100vh;
-    background: #fbfafa;
-    padding-left: 18rem;
+    background: #faf9f9;
+    padding: 2rem;
+    padding-left: 19rem;
 }
