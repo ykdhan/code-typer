@@ -24,10 +24,6 @@
     opacity: 1;
 }
 
-.stock-item + .stock-item {
-    border-top: 1px solid #f5f5f5;
-}
-
 .remove {
     margin-left: 1rem;
     color: #343a40;
