@@ -5,7 +5,7 @@ const Form = ({value, onChange, onCreate, onKeyDown}) => {
     return (
       <div className="form">
         <input placeholder="검색..." value={value} onChange={onChange} onKeyDown={onKeyDown}/>
-        <div className="create-button" onClick={onCreate}>🐓</div>
+        <div className="create-button" onClick={onCreate}><span role="img" aria-label="수탉">🐓</span></div>
       </div>
     );
   };
